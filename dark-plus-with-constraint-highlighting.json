@@ -1,0 +1,29 @@
+{
+    "// Option A: Only for Dark+ theme": "",
+    "editor.tokenColorCustomizations": {
+        "[Dark+ (default dark)]": {
+            "textMateRules": [
+                {
+                    "scope": "entity.name.function.constraint.pil2",
+                    "settings": {
+                        "foreground": "#80FF00",
+                        "fontStyle": "bold"
+                    }
+                }
+            ]
+        }
+    },
+    
+    "// Option B: For all themes (remove the theme name brackets)": "",
+    "alternative.editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "entity.name.function.constraint.pil2",
+                "settings": {
+                    "foreground": "#80FF00",
+                    "fontStyle": "bold"
+                }
+            }
+        ]
+    }
+}
