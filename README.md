@@ -13,6 +13,7 @@ This extension provides the following features for PIL2 files (`.pil2`, `.pil`):
 - **Proof System**: `when`, `once`, `final`, `container`, `air`, `proof`, `airgroup`, `airtemplate`, `on`, `stage`, `challenge`, `aggregate`, `instance`
 - **Operators**: 
   - `===` (constraint operator) - **highlighted in distinctive color/bold**
+  - `<==` (constraint + witness generator operator) - **highlighted in distinctive color/bold**
   - `==` (assignment operator)
   - `..` (range operator)
   - `...` (fill operator)
@@ -34,7 +35,7 @@ This extension provides the following features for PIL2 files (`.pil2`, `.pil`):
 - **Smart Indentation**: Automatic indentation based on code structure
 
 ### Special Constraint Highlighting
-- **Syntax Scope**: The `===` operator has a unique scope: `entity.name.function.constraint.pil2`
+- **Syntax Scope**: The `===` and `<==` operators have a unique scope: `entity.name.function.constraint.pil2`
 - **Works with Any Theme**: You can add constraint highlighting to your favorite theme
 
 #### 🎨 How to Add Green Constraint Highlighting:
@@ -83,7 +84,7 @@ Replace `[Dark+ (default dark)]` with your theme name, or remove the theme brack
 }
 ```
 
-**Result**: Your theme stays exactly the same, but `===` operators glow in bright green!
+**Result**: Your theme stays exactly the same, but `===` and `<==` operators glow in bright green!
 
 ## 📁 File Navigation & Include Support
 
@@ -128,7 +129,7 @@ require `${std_path}/advanced.pil2`   // ✅ Template with variable (resolves to
 include "std.pil2"
 
 // Column declarations
-namespace Main(2**10) {
+airtemplate Main(int N=2**10) {
     // Witness columns (provided by prover)
     col witness a, b, c;
     
@@ -144,31 +145,10 @@ function addGate(fe a, fe b) {
     return a + b;
 }
 
-// Polynomial constraints
-namespace Main {
-    // Addition gate constraint
-    sel_add * (a + b - c) === 0;
-    
-    // Multiplication gate constraint  
-    sel_mul * (a * b - c) === 0;
-    
-    // Copy constraints using ranges
-    a[0..7] === public_input[0..7];
-}
-
 // AIR definition
 air Main {
-    stage 0:
-        witness a, b, c;
-        
-    stage 1:
-        challenge alpha;
-        
-    // Polynomial identities
-    pol add_check = sel_add * (a + b - c);
-    
-    // Main constraint
-    add_check === 0;
+    // template instance
+    Main();
 }
 ```
 
