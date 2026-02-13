@@ -2,7 +2,7 @@
   "name": "pil2-language-support",
   "displayName": "PIL2 Language Support",
   "description": "Syntax highlighting and language features for PIL2 DSL",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT OR Apache-2.0",
   "publisher": "SilentSig",
   "repository": {

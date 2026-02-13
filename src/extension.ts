@@ -53,6 +53,7 @@ class PIL2HoverProvider implements vscode.HoverProvider {
 			
 			// Special operators
 			'===': 'PIL2 constraint operator - creates a polynomial constraint',
+			'<==': 'PIL2 constraint and witness generator operator - creates a polynomial constraint and define how calculate witness',
 			'==': 'PIL2 assignment operator',
 			'..': 'PIL2 range operator',
 			'...': 'PIL2 fill operator',
@@ -151,6 +152,7 @@ class PIL2CompletionProvider implements vscode.CompletionItemProvider {
 		// PIL2 special operators
 		const operators = [
 			{ name: '===', detail: 'constraint operator', description: 'Creates a polynomial constraint' },
+			{ name: '<==', detail: 'constraint and witness generator operator', description: 'Creates a polynomial constraint and define how calculate witness' },
 			{ name: '==', detail: 'assignment operator', description: 'Assigns a value' },
 			{ name: '..', detail: 'range operator', description: 'Creates a range' },
 			{ name: '...', detail: 'fill operator', description: 'Fills a range' },

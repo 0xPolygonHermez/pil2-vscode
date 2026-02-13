@@ -100,6 +100,10 @@
                     "name": "entity.name.function.constraint.pil2"
                 },
                 {
+                    "match": "<==",
+                    "name": "entity.name.function.constraint.pil2"
+                },
+                {
                     "match": "==",
                     "name": "keyword.operator.assignment.pil2"
                 },
